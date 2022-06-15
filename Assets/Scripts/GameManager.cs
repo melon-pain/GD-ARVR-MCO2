@@ -23,12 +23,24 @@ public class GameManager : MonoBehaviour
     public void AddScore()
     {
         score++;
+        Debug.Log(score);
     }
 
     public void AddBonusScore()
     {
         // Play vine boom SFX here
         score += 10;
+        Debug.Log("Bonus: " + score);
+    }
+
+    public int CurrentScore()
+    {
+        return score;
+    }
+
+    public int CurrentLife()
+    {
+        return life;
     }
 
     public void RemoveLife()
