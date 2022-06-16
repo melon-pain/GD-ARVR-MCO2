@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
         {
             isGameOver = true;
             // Do something
+            // Either activate game over panel or switch to scene
         }
     }
 }
