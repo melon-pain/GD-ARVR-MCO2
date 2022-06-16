@@ -20,6 +20,7 @@ public class ButtonHandler : MonoBehaviour
     private void OnButtonPressed(VirtualButtonBehaviour button)
     {
         Spawner spawner = button.GetComponent<Spawner>();
+        Debug.Log(button.name);
         // Stop if spawner has no spawn
         if (!spawner.isSpawned)
             return;
@@ -29,6 +30,7 @@ public class ButtonHandler : MonoBehaviour
         {
             case SpawnType.Mole:
                 GameManager.instance.AddScore();
+                Debug.Log(button.name + " is hit");//double check if the button is being hit
                 break;
             case SpawnType.Trap:
                 GameManager.instance.RemoveAllLives();
