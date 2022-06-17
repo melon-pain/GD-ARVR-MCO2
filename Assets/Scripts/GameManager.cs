@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,6 +25,7 @@ public class GameManager : MonoBehaviour
     public void AddScore()
     {
         score++;
+        UIManager.instance.UpdateScore();
         Debug.Log(score);
     }
 
@@ -30,6 +33,7 @@ public class GameManager : MonoBehaviour
     {
         // Play vine boom SFX here
         score += 10;
+        UIManager.instance.UpdateScore();
         Debug.Log("Bonus: " + score);
     }
 
@@ -46,6 +50,7 @@ public class GameManager : MonoBehaviour
     public void RemoveLife()
     {
         life--;
+        UIManager.instance.UpdateLife();
         if (life <= 0)
         {
             GameOver();
