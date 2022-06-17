@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     public void AddScore()
     {
         score++;
-        UIManager.instance.UpdateScore();
+        UIManager.uInstance.UpdateScore();
         Debug.Log(score);
     }
 
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     {
         // Play vine boom SFX here
         score += 10;
-        UIManager.instance.UpdateScore();
+        UIManager.uInstance.UpdateScore();
         Debug.Log("Bonus: " + score);
     }
 
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     public void RemoveLife()
     {
         life--;
-        UIManager.instance.UpdateLife();
+        UIManager.uInstance.UpdateLife();
         if (life <= 0)
         {
             GameOver();
@@ -71,13 +71,16 @@ public class GameManager : MonoBehaviour
             isGameOver = true;
             // Do something
             PauseGame();
-            UIManager.instance.OnGameOver(true);
+            UIManager.uInstance.OnGameOver(true);
         }
     }
     public void RestartGame()
     {
         UnPause();
-        UIManager.instance.OnGameOver(false);
+        UIManager.uInstance.OnGameOver(false);
+        Debug.Log("Restarting");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Debug.Log("Restarted");
     }
     public void PauseGame()
     {

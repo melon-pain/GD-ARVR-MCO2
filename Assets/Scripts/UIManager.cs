@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager instance;
+    public static UIManager uInstance;
 
     [SerializeField] private Text lifeText;
     [SerializeField] private Text scoreText;
     [Header("Game Over")]
-    [SerializeField] private GameObject gameOver;
+    public GameObject gameOver;
     [SerializeField] private Text totalScoreText;
     [SerializeField] private Text highScoreText;
 
@@ -19,11 +19,11 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        if (uInstance == null)
         {
-            instance = null;
+            uInstance = null;
         }
-        else if(instance != this)
+        else if (uInstance != this)
         {
             Destroy(this);
         }
@@ -36,12 +36,16 @@ public class UIManager : MonoBehaviour
         scoreText.text = "Score: " + GameManager.instance.CurrentScore().ToString();
         gameOver.SetActive(false);
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            GameManager.instance.RemoveAllLives();
+            GameManager.instance.RemoveLife();
         }
+        /*if (GameManager.uInstance.isGameOver)
+        {
+            OnGameOver(true);
+        }*/
     }
     public void UpdateScore()
     {
@@ -64,11 +68,11 @@ public class UIManager : MonoBehaviour
         int score = GameManager.instance.CurrentScore();
         if(score > highScore)
         {
-            highScoreText.text = score.ToString();
+            highScoreText.text = "High Score: " + score.ToString();
             //not sure if this will reset as well
             highScore = score;
         }
-        totalScoreText.text = scoreText.text;
+        totalScoreText.text = "Score: " + scoreText.text;
     }
 
     public void OnMainMenu()
