@@ -70,7 +70,21 @@ public class GameManager : MonoBehaviour
         {
             isGameOver = true;
             // Do something
-            // Either activate game over panel or switch to scene
+            PauseGame();
+            UIManager.instance.OnGameOver(true);
         }
+    }
+    public void RestartGame()
+    {
+        UnPause();
+        UIManager.instance.OnGameOver(false);
+    }
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+    public void UnPause()
+    {
+        Time.timeScale = 1;
     }
 }
