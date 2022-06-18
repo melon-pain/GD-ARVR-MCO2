@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
         score = 0;
         UnPause();
         ui.OnGameOver(false);
+        isGameOver = false;
         Debug.Log("Restarted");
     }
     public void PauseGame()
