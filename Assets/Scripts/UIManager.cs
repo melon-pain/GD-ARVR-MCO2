@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager uInstance;
-
     [SerializeField] private Text lifeText;
     [SerializeField] private Text scoreText;
     [Header("Game Over")]
@@ -15,19 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text totalScoreText;
     [SerializeField] private Text highScoreText;
 
-    private int highScore = 0;
-
-    private void Awake()
-    {
-        if (uInstance == null)
-        {
-            uInstance = null;
-        }
-        else if (uInstance != this)
-        {
-            Destroy(this);
-        }
-    }
+    [SerializeField] private int highScore = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -42,10 +28,8 @@ public class UIManager : MonoBehaviour
         {
             GameManager.instance.RemoveLife();
         }
-        /*if (GameManager.uInstance.isGameOver)
-        {
-            OnGameOver(true);
-        }*/
+        UpdateLife();
+        UpdateScore();
     }
     public void UpdateScore()
     {
@@ -72,7 +56,7 @@ public class UIManager : MonoBehaviour
             //not sure if this will reset as well
             highScore = score;
         }
-        totalScoreText.text = "Score: " + scoreText.text;
+        totalScoreText.text = "Score: " + score.ToString();
     }
 
     public void OnMainMenu()

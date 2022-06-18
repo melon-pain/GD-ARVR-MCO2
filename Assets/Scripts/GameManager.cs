@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    public UIManager ui;
     [SerializeField]
     private int score = 0;
     [SerializeField]
@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
     public void AddScore()
     {
         score++;
-        UIManager.uInstance.UpdateScore();
         Debug.Log(score);
     }
 
@@ -33,7 +32,6 @@ public class GameManager : MonoBehaviour
     {
         // Play vine boom SFX here
         score += 10;
-        UIManager.uInstance.UpdateScore();
         Debug.Log("Bonus: " + score);
     }
 
@@ -50,7 +48,6 @@ public class GameManager : MonoBehaviour
     public void RemoveLife()
     {
         life--;
-        UIManager.uInstance.UpdateLife();
         if (life <= 0)
         {
             GameOver();
@@ -70,16 +67,20 @@ public class GameManager : MonoBehaviour
         {
             isGameOver = true;
             // Do something
+            //just in case
+            ui.UpdateLife();
             PauseGame();
-            UIManager.uInstance.OnGameOver(true);
+            ui.OnGameOver(true);
         }
     }
     public void RestartGame()
     {
-        UnPause();
-        UIManager.uInstance.OnGameOver(false);
         Debug.Log("Restarting");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        /*SceneManager.LoadScene(SceneManager.GetActiveScene().name);*/
+        life = 3;
+        score = 0;
+        UnPause();
+        ui.OnGameOver(false);
         Debug.Log("Restarted");
     }
     public void PauseGame()
