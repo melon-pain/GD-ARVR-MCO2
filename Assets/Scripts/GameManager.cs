@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    public UIManager ui;
     [SerializeField]
     private int score = 0;
     [SerializeField]
@@ -65,7 +67,28 @@ public class GameManager : MonoBehaviour
         {
             isGameOver = true;
             // Do something
-            // Either activate game over panel or switch to scene
+            //just in case
+            ui.UpdateLife();
+            PauseGame();
+            ui.OnGameOver(true);
         }
+    }
+    public void RestartGame()
+    {
+        Debug.Log("Restarting");
+        /*SceneManager.LoadScene(SceneManager.GetActiveScene().name);*/
+        life = 3;
+        score = 0;
+        UnPause();
+        ui.OnGameOver(false);
+        Debug.Log("Restarted");
+    }
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+    public void UnPause()
+    {
+        Time.timeScale = 1;
     }
 }
