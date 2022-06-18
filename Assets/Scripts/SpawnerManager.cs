@@ -40,11 +40,16 @@ public class SpawnerManager : MonoBehaviour
             // Wait for despawn
             yield return new WaitForSeconds(Random.Range(minDespawnInterval, maxDespawnInterval));
 
-            // If spawned was not KO'd, remove life and despawn
+            // If spawned was not KO'd
             if (toSpawn.isSpawned)
             {
+                // Remove life if spawn was not a trap
+                if (toSpawn.currentType != SpawnType.Trap)
+                {
+                    GameManager.instance.RemoveLife();
+                }
+
                 toSpawn.Despawn();
-                GameManager.instance.RemoveLife();
             }
         }
     }
