@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     public void AddBonusScore()
     {
         // Play vine boom SFX here
-        audioSource.PlayOneShot(audioBank.audioclips[7]);
+        audioSource.PlayOneShot(audioBank.audioclips[9]);
         score += 10;
         Debug.Log("Bonus: " + score);
     }
@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
     public void RemoveAllLives()
     {
         // Play Deltarune Explosion SFX here
-        audioSource.PlayOneShot(audioBank.audioclips[6]);
+        audioSource.PlayOneShot(audioBank.audioclips[4]);
         life = 0;
         GameOver();
     }

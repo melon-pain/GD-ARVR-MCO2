@@ -29,7 +29,7 @@ public class ButtonHandler : MonoBehaviour
         switch (spawner.currentType)
         {
             case SpawnType.Mole:
-                GameManager.instance.PlaySound(2);
+                GameManager.instance.PlaySound(3);
                 GameManager.instance.AddScore();
                 Debug.Log(button.name + " is hit");//double check if the button is being hit
                 break;
@@ -37,7 +37,7 @@ public class ButtonHandler : MonoBehaviour
                 GameManager.instance.RemoveAllLives();
                 break;
             case SpawnType.Impostor:
-                GameManager.instance.PlaySound(2);
+                GameManager.instance.PlaySound(1);
                 GameManager.instance.AddBonusScore();
                 break;
         }
