@@ -19,7 +19,7 @@ public class ButtonHandler : MonoBehaviour
 
     private void OnButtonPressed(VirtualButtonBehaviour button)
     {
-        Spawner spawner = button.GetComponent<Spawner>();
+        Spawner spawner = button.GetComponentInChildren<Spawner>();
         Debug.Log(button.name);
         // Stop if spawner has no spawn
         if (!spawner.isSpawned)

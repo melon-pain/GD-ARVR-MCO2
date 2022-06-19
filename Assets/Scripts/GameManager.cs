@@ -104,6 +104,6 @@ public class GameManager : MonoBehaviour
 
     public void PlaySound(int index)
     {
-        audioSource.PlayOneShot(audioBank.audioclips[index]);
+        audioSource.PlayOneShot(audioBank.audioclips[index], 1);
     }
 }

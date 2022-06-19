@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class AudioBank : MonoBehaviour
 {
-    public List<AudioClip> audioclips;
+    public List<AudioClip> audioclips = new List<AudioClip>();
 
-    private void Start()
-    {
-        audioclips = new List<AudioClip>();
-    }
 }
