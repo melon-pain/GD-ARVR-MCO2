@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("beacon Target not found");
+            Debug.LogError("Target not found");
         }
 
         spawnerManager = GetComponent<SpawnerManager>();
@@ -137,17 +137,21 @@ public class GameManager : MonoBehaviour
         {
             OnTargetFound();
         }
+
+        Debug.Log("Status changed");
     }
 
     public void OnTargetLost()
     {
         spawnerManager.OnTargetLost();
         textLoss.SetActive(true);
+        Debug.Log("Target lost");
     }
 
     public void OnTargetFound()
     {
         spawnerManager.OnTargetFound();
         textLoss.SetActive(false);
+        Debug.Log("Target found");
     }
 }

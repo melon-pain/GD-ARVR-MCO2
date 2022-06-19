@@ -26,8 +26,6 @@ public class SpawnerManager : MonoBehaviour
 
     private IEnumerator Spawn()
     {
-        Debug.Log("Start spawning");
-
         while (true)
         {
             // Wait for spawn
@@ -79,7 +77,6 @@ public class SpawnerManager : MonoBehaviour
         if (spawnCoroutine != null)
         {
             StopCoroutine(spawnCoroutine);
-            Debug.LogWarning("Stop spawning");
         }
     }
 }
