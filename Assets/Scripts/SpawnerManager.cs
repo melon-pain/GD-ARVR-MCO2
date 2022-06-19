@@ -17,10 +17,11 @@ public class SpawnerManager : MonoBehaviour
     [SerializeField]
     private float maxDespawnInterval;
 
+    private Coroutine spawnCoroutine = null;
+
     // Start is called before the first frame update
     private void Start()
     {
-        StartCoroutine(Spawn());
     }
 
     private IEnumerator Spawn()
@@ -52,5 +53,24 @@ public class SpawnerManager : MonoBehaviour
                 toSpawn.Despawn();
             }
         }
+    }
+
+    private void ResetSpawn()
+    {
+        foreach (var spawner in spawners)
+        {
+            spawner.Despawn();
+        }
+    }
+
+    public void OnTargetFound()
+    {
+        ResetSpawn();
+        spawnCoroutine = StartCoroutine(Spawn());
+    }
+
+    public void OnTargetLost()
+    {
+        StopCoroutine(spawnCoroutine);
     }
 }
