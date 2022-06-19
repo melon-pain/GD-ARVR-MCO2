@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
     public void OnStart()
     {
         //Temp
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Test Scene");
     }
     public void OnQuit()
     {
