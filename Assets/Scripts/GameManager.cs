@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
 
     public void OnTargetStatusChanged(ObserverBehaviour target, TargetStatus targetStatus)
     {
-        if (targetStatus.Status == Status.NO_POSE)
+        if (targetStatus.Status != Status.TRACKED)
         {
             OnTargetLost();
         }
