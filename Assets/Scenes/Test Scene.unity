@@ -1014,7 +1014,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 793098595}
+  - {fileID: 1182789619}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1860,35 +1860,6 @@ MonoBehaviour:
   trapSpawnChance: 0.2
   impostorPrefab: {fileID: 1169518007321718019, guid: 25063105439f0d247b2cfafeb45ff69e, type: 3}
   impostorSpawnChance: 0.1
---- !u!21 &793098595
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'donutMaterial
-
-    38228'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: fe6f32c04cc94ae2bffd4446941f3023, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &924817393
 GameObject:
   m_ObjectHideFlags: 0
@@ -2087,6 +2058,35 @@ MonoBehaviour:
     e33: 1
   mPrevParent: {fileID: 354606579}
   mPreviousVirtualSceneScaleFactor: 1
+--- !u!21 &1182789619
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'donutMaterial
+
+    39206'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: fe6f32c04cc94ae2bffd4446941f3023, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
 --- !u!43 &1228439421
 Mesh:
   m_ObjectHideFlags: 0
@@ -2539,6 +2539,7 @@ GameObject:
   - component: {fileID: 1347189838}
   - component: {fileID: 1347189839}
   - component: {fileID: 1347189840}
+  - component: {fileID: 1347189841}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2716,6 +2717,25 @@ MonoBehaviour:
   totalScoreText: {fileID: 142746724}
   highScoreText: {fileID: 142746723}
   highScore: 0
+--- !u!114 &1347189841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347189835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675e99558afb65947bb36d4dc8e01e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualButtons:
+  - {fileID: 1922976160}
+  - {fileID: 468791141}
+  - {fileID: 1694200116}
+  - {fileID: 20831729}
+  - {fileID: 1422410671}
+  - {fileID: 1052801353}
 --- !u!1001 &1350733055
 PrefabInstance:
   m_ObjectHideFlags: 0
