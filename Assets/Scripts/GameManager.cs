@@ -31,15 +31,15 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if (imageTarget != null)
-        {
-            imageTarget.OnTargetStatusChanged += OnTargetStatusChanged;
-            Debug.Log("Yes");
-        }
-        else
-        {
-            Debug.LogError("Target not found");
-        }
+        //if (imageTarget != null)
+        //{
+        //    imageTarget.OnTargetStatusChanged += OnTargetStatusChanged;
+        //    Debug.Log("Yes");
+        //}
+        //else
+        //{
+        //    Debug.LogError("Target not found");
+        //}
     }
 
     public void AddScore()
