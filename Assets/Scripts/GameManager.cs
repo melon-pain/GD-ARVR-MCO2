@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public AudioSource audioSource;
     [SerializeField] private ObserverBehaviour imageTarget;
 
-    private SpawnerManager spawnerManager;
+    public SpawnerManager spawnerManager;
     public GameObject textLoss;
 
     private void Awake()
@@ -31,18 +31,15 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-
         if (imageTarget != null)
         {
             imageTarget.OnTargetStatusChanged += OnTargetStatusChanged;
+            Debug.Log("Yes");
         }
         else
         {
             Debug.LogError("Target not found");
         }
-
-        spawnerManager = GetComponent<SpawnerManager>();
     }
 
     public void AddScore()
