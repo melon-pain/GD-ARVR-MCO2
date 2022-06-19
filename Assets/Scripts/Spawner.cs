@@ -42,14 +42,19 @@ public class Spawner : MonoBehaviour
         if (rand <= impostorSpawnChance)
         {
             // Play amogus SFX here
+            GameManager.instance.PlaySound(1);
             currentType = SpawnType.Impostor;
         }
         else if (rand <= trapSpawnChance)
         {
+            // Play beep beep here
+            GameManager.instance.PlaySound(4);
             currentType = SpawnType.Trap;
         }
         else
         {
+            // Play pop sound here
+            GameManager.instance.PlaySound(5);
             currentType = SpawnType.Mole;
         }
 

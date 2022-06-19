@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int life = 3;
     public bool isGameOver { get; private set; } = false;
+    [SerializeField] private AudioBank audioBank;
+    public AudioSource audioSource;
 
     private void Awake()
     {
@@ -20,6 +22,11 @@ public class GameManager : MonoBehaviour
             instance = this;
         else if (instance != this)
             Destroy(this);
+    }
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void AddScore()
@@ -31,6 +38,7 @@ public class GameManager : MonoBehaviour
     public void AddBonusScore()
     {
         // Play vine boom SFX here
+        audioSource.PlayOneShot(audioBank.audioclips[7]);
         score += 10;
         Debug.Log("Bonus: " + score);
     }
@@ -57,6 +65,7 @@ public class GameManager : MonoBehaviour
     public void RemoveAllLives()
     {
         // Play Deltarune Explosion SFX here
+        audioSource.PlayOneShot(audioBank.audioclips[6]);
         life = 0;
         GameOver();
     }
@@ -91,5 +100,10 @@ public class GameManager : MonoBehaviour
     public void UnPause()
     {
         Time.timeScale = 1;
+    }
+
+    public void PlaySound(int index)
+    {
+        audioSource.PlayOneShot(audioBank.audioclips[index]);
     }
 }

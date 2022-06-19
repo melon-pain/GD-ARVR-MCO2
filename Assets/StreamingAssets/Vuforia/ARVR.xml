@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="donut" size="1.000000 1.000000" />
+    <ImageTarget name="crosshair_complicated" size="1.000000 1.000000" />
+    <ImageTarget name="rounded-rocks-texture" size="1.000000 0.750000" />
+    <ImageTarget name="craggy-wall" size="1.000000 0.668945" />
+    <ImageTarget name="bitcoin" size="1.000000 1.000000" />
+    <ImageTarget name="jetpackJoyrideLogo" size="1.000000 1.000000" />
+    <ImageTarget name="amogus" size="1.000000 1.000000" />
+    <ImageTarget name="Crosshair" size="1.000000 1.000000" />
+    <ImageTarget name="rooks" size="1.000000 1.031674" />
+  </Tracking>
+</QCARConfig>
