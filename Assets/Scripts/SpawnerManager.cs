@@ -55,7 +55,7 @@ public class SpawnerManager : MonoBehaviour
         }
     }
 
-    private void ResetSpawn()
+    public void ResetSpawn()
     {
         foreach (var spawner in spawners)
         {
@@ -71,6 +71,9 @@ public class SpawnerManager : MonoBehaviour
 
     public void OnTargetLost()
     {
-        StopCoroutine(spawnCoroutine);
+        if (spawnCoroutine != null)
+        {
+            StopCoroutine(spawnCoroutine);
+        }
     }
 }
