@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Vuforia;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class GameManager : MonoBehaviour
     public bool isGameOver { get; private set; } = false;
     [SerializeField] private AudioBank audioBank;
     public AudioSource audioSource;
+    [SerializeField] private ObserverBehaviour imageTarget;
+
+    private SpawnerManager spawnerManager;
+    public GameObject textLoss;
 
     private void Awake()
     {
@@ -27,6 +32,17 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+
+        if (imageTarget != null)
+        {
+            imageTarget.OnTargetStatusChanged += OnTargetStatusChanged;
+        }
+        else
+        {
+            Debug.LogError("beacon Target not found");
+        }
+
+        spawnerManager = GetComponent<SpawnerManager>();
     }
 
     public void AddScore()
@@ -109,5 +125,28 @@ public class GameManager : MonoBehaviour
     public void PlaySound(int index)
     {
         audioSource.PlayOneShot(audioBank.audioclips[index], 1);
+    }
+
+    public void OnTargetStatusChanged(ObserverBehaviour target, TargetStatus targetStatus)
+    {
+        if (targetStatus.Status == Status.NO_POSE)
+        {
+            OnTargetLost();
+        }
+        else
+        {
+            OnTargetDetected();
+        }
+    }
+
+    public void OnTargetLost()
+    {
+        spawnerManager.gameObject.SetActive(false);
+        textLoss.SetActive(true);
+    }
+    public void OnTargetDetected()
+    {
+        spawnerManager.gameObject.SetActive(true);
+        textLoss.SetActive(false);
     }
 }
