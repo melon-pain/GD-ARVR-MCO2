@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
         if (!isGameOver)
         {
             isGameOver = true;
-            if (score > highScore)
+            if (score >= highScore)
             {
                 highScore = score;
             }

@@ -13,8 +13,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text totalScoreText;
     [SerializeField] private Text highScoreText;
 
-    [SerializeField] private int highScore = 0;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +48,7 @@ public class UIManager : MonoBehaviour
     {
         gameOver.SetActive(condition);
         int score = GameManager.instance.CurrentScore();
-        highScoreText.text = "High Score: " + highScore.ToString();
+        highScoreText.text = "High Score: " + GameManager.instance.highScore.ToString();
         totalScoreText.text = "Score: " + score.ToString();
     }
 
