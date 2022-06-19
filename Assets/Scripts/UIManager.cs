@@ -50,12 +50,7 @@ public class UIManager : MonoBehaviour
     {
         gameOver.SetActive(condition);
         int score = GameManager.instance.CurrentScore();
-        if(score > highScore)
-        {
-            highScoreText.text = "High Score: " + score.ToString();
-            //not sure if this will reset as well
-            highScore = score;
-        }
+        highScoreText.text = "High Score: " + highScore.ToString();
         totalScoreText.text = "Score: " + score.ToString();
     }
 

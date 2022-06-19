@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public UIManager ui;
-    [SerializeField]
-    private int score = 0;
+    public int score { get; private set; } = 0;
+    public int highScore { get; private set; } = 0;
     [SerializeField]
     private int life = 3;
     public bool isGameOver { get; private set; } = false;
@@ -75,6 +75,10 @@ public class GameManager : MonoBehaviour
         if (!isGameOver)
         {
             isGameOver = true;
+            if (score > highScore)
+            {
+                highScore = score;
+            }
             // Do something
             //just in case
             ui.UpdateLife();
