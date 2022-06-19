@@ -68,7 +68,10 @@ public class SpawnerManager : MonoBehaviour
     public void OnTargetFound()
     {
         ResetSpawn();
-        spawnCoroutine = StartCoroutine(Spawn());
+        if (spawnCoroutine == null)
+        {
+            spawnCoroutine = StartCoroutine(Spawn());
+        }
     }
 
     public void OnTargetLost()

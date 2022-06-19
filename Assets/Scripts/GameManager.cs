@@ -135,18 +135,19 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            OnTargetDetected();
+            OnTargetFound();
         }
     }
 
     public void OnTargetLost()
     {
-        spawnerManager.gameObject.SetActive(false);
+        spawnerManager.OnTargetLost();
         textLoss.SetActive(true);
     }
-    public void OnTargetDetected()
+
+    public void OnTargetFound()
     {
-        spawnerManager.gameObject.SetActive(true);
+        spawnerManager.OnTargetFound();
         textLoss.SetActive(false);
     }
 }
