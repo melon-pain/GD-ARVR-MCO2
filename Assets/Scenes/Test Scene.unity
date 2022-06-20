@@ -2890,8 +2890,8 @@ MonoBehaviour:
   - {fileID: 224294099}
   - {fileID: 897679830}
   - {fileID: 47800011}
-  minSpawnInterval: 1
-  maxSpawnInterval: 2
+  minSpawnInterval: 0.75
+  maxSpawnInterval: 1.5
   minDespawnInterval: 4
   maxDespawnInterval: 5
 --- !u!82 &1347189839
