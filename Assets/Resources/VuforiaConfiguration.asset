@@ -18,14 +18,14 @@ MonoBehaviour:
     delayedInitialization: 0
     cameraFocusModeSetting: 2
     cameraDeviceModeSetting: -1
-    maxSimultaneousImageTargets: 1
-    maxSimultaneousObjectTargets: 1
+    maxSimultaneousImageTargets: 2
+    maxSimultaneousObjectTargets: 2
     virtualSceneScaleFactor: 1
     useDelayedLoadingObjectTargets: 0
     modelTargetRecoWhileExtendedTracked: 1
     shareRecordingsInITunes: 0
     version: 10.6.3
-    eulaAcceptedVersions: '{"Values":["10.5","10.6"]}'
+    eulaAcceptedVersions: '{"Values":["10.5","10.6","10.7"]}'
   database:
     disableModelExtraction: 0
   shaders:
